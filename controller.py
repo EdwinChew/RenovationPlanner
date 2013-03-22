@@ -6,11 +6,11 @@ class controller :
    def listAllCompanies(self):
       	return Quotation.objects.all() 
 
-   def addNewCompany(self, name):
+   def addNewCompany(self, name, date, price):
         try :
 	    quotation = Quotation(company=name,
-				date_of_quote=timezone.now(),
-				total_price=1999.00)
+				date_of_quote=date,
+				total_price=price)
             quotation.save()
             return True
         except :
